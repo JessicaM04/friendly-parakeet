@@ -26,10 +26,14 @@ function passQuestions(){
   // To see if user wants to use special characters //
   var confirmSpecial = window.confirm("Would you like special characters to be included in your password?");
   console.log("confirmSpecial is ", confirmSpecial);
+  // To generate a new password //
+  var generatedPassword = generatePassword(lengthPromptValue, confirmUpper, confirmLower, confirmNumber, confirmSpecial);
+  console.log(generatedPassword);
+  // To write password to page //
+  document.getElementById("password").value = generatedPassword;
 }
 
-
-
+// Questions to gather information for password //
 function generatePassword(length, isUpper, isLower, isNumbers, isSpecial) {
   var passwordLength = length;
   var charsForPassword = "";
@@ -61,6 +65,7 @@ function generatePassword(length, isUpper, isLower, isNumbers, isSpecial) {
   console.log(charsForPassword);
   return password;
 }
+
 
 //  <button onclick="writePassword()">Click</button> 
 // // Get references to the #generate element
