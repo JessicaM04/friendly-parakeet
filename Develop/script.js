@@ -16,16 +16,24 @@ function passQuestions(){
 
   // To see if user wants to use uppercase letters //
   var confirmUpper = window.confirm("Would you like uppercase letters to be included in your password?");
-  console.log("confirmUpper is " , confirmUpper);
+  if (confirmUpper === true) {
+    confirmUpper = window.confirm("Are you sure you would like uppercase letters to be included in your password?");
+  }
   // To see if user wants to use lowercase letters //
   var confirmLower = window.confirm("Would you like lowercase letters to be included in your password?");
-  console.log("confirmLower is ", confirmLower);
+  if (confirmLower === true) {
+    confirmLower = window.confirm("Are you sure you would like uppercase letters to be included in your password?");
+  }
   // To see if user wants to use numbers //
-  var confirmNumber = window.confirm("Would you like a number to be included in your password?");
-  console.log("confirmNumber is ", confirmNumber);
+  var confirmNumber = window.confirm("Would you like numbers to be included in your password?");
+  if (confirmNumber === true) {
+    confirmNumber = window.confirm("Are you sure you would like numbers to be included in your password?");
+  }
   // To see if user wants to use special characters //
   var confirmSpecial = window.confirm("Would you like special characters to be included in your password?");
-  console.log("confirmSpecial is ", confirmSpecial);
+  if (confirmSpecial === true) {
+    confirmSpecial = window.confirm("Are you sure you would like to include special characters in your password?");
+  }
   // To generate a new password //
   var generatedPassword = generatePassword(lengthPromptValue, confirmUpper, confirmLower, confirmNumber, confirmSpecial);
   console.log(generatedPassword);
