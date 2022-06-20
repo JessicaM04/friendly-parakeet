@@ -4,6 +4,12 @@ function passQuestions(){
   var lengthPromptValue = 
     window.prompt("How many characters would you like" +
     "in your password? Please pick between 8 and 128 characters.");
+
+  var confirmUpper = false;
+  var confirmLower = false;
+  var confirmNumber = false;
+  var confirmSpecial = false;
+
   // Getting the length of the password from the user //
   if(lengthPromptValue === "" || lengthPromptValue === null){
     lengthPromptValue = window.prompt("Please enter a value.")
@@ -14,25 +20,27 @@ function passQuestions(){
     lengthPromptValue = window.prompt("Please enter a valid length.")
   }
 
-  // To see if user wants to use uppercase letters //
-  var confirmUpper = window.confirm("Would you like uppercase letters to be included in your password?");
-  if (confirmUpper === true) {
-    confirmUpper = window.confirm("Are you sure you would like uppercase letters to be included in your password?");
-  }
-  // To see if user wants to use lowercase letters //
-  var confirmLower = window.confirm("Would you like lowercase letters to be included in your password?");
-  if (confirmLower === true) {
-    confirmLower = window.confirm("Are you sure you would like uppercase letters to be included in your password?");
-  }
-  // To see if user wants to use numbers //
-  var confirmNumber = window.confirm("Would you like numbers to be included in your password?");
-  if (confirmNumber === true) {
-    confirmNumber = window.confirm("Are you sure you would like numbers to be included in your password?");
-  }
-  // To see if user wants to use special characters //
-  var confirmSpecial = window.confirm("Would you like special characters to be included in your password?");
-  if (confirmSpecial === true) {
-    confirmSpecial = window.confirm("Are you sure you would like to include special characters in your password?");
+  while(confirmUpper === false && confirmLower === false && confirmNumber === false && confirmSpecial === false) {
+    // To see if user wants to use uppercase letters //
+    confirmUpper = window.confirm("Would you like uppercase letters to be included in your password?");
+    if (confirmUpper === true) {
+      confirmUpper = window.confirm("Are you sure you would like uppercase letters to be included in your password?");
+    }
+    // To see if user wants to use lowercase letters //
+    confirmLower = window.confirm("Would you like lowercase letters to be included in your password?");
+    if (confirmLower === true) {
+      confirmLower = window.confirm("Are you sure you would like uppercase letters to be included in your password?");
+    }
+    // To see if user wants to use numbers //
+    confirmNumber = window.confirm("Would you like numbers to be included in your password?");
+    if (confirmNumber === true) {
+      confirmNumber = window.confirm("Are you sure you would like numbers to be included in your password?");
+    }
+    // To see if user wants to use special characters //
+    confirmSpecial = window.confirm("Would you like special characters to be included in your password?");
+    if (confirmSpecial === true) {
+      confirmSpecial = window.confirm("Are you sure you would like to include special characters in your password?");
+    }
   }
   // To generate a new password //
   var generatedPassword = generatePassword(lengthPromptValue, confirmUpper, confirmLower, confirmNumber, confirmSpecial);
